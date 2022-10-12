@@ -21,7 +21,7 @@ public class Login extends JFrame {
      * Creates new form ATMmain
      */
     String appTitle = "Fingerprint Authentication";
-    String key = "";
+    //String key = "";
 
     Connection conn;
 
@@ -243,36 +243,7 @@ public class Login extends JFrame {
 
         mainPanel.add(Authentication, "card2");
 
-        GroupLayout layout = new GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator1)
-                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(mainPanel)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(hiddenField)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Heading, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(Heading, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(hiddenField, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
-                                                .addGap(16, 16, 16)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-                                .addGap(1, 1, 1)
-                                .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, 489, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-        );
+
 
         userNameSignup.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         userNameSignup.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -364,6 +335,134 @@ public class Login extends JFrame {
         );
 
         mainPanel.add(Signup, "card2");
+
+        welcomeText.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        welcomeText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        welcomeText.setText("Welcome, ");
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        jLabel4.setText("What would you like to do?");
+
+        withdrawalBtn.setBackground(new java.awt.Color(255, 255, 255));
+        withdrawalBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        withdrawalBtn.setText("Withdrawal");
+        withdrawalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //withdrawalBtnActionPerformed(evt);
+            }
+        });
+
+        viewBalanceBtn.setBackground(new java.awt.Color(255, 255, 255));
+        viewBalanceBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        viewBalanceBtn.setText("View Balance");
+        viewBalanceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //viewBalanceBtnActionPerformed(evt);
+            }
+        });
+
+        viewTransactionBtn.setBackground(new java.awt.Color(255, 255, 255));
+        viewTransactionBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        viewTransactionBtn.setText("View Transactions");
+        viewTransactionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // viewTransactionBtnActionPerformed(evt);
+            }
+        });
+
+        transferBtn.setBackground(new java.awt.Color(255, 255, 255));
+        transferBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
+        transferBtn.setText("Money Transfer");
+        transferBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // transferBtnActionPerformed(evt);
+            }
+        });
+
+        logoutBtn.setBackground(new java.awt.Color(255, 0, 0));
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setText("Logout");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //logoutBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homeLayout = new javax.swing.GroupLayout(home);
+        home.setLayout(homeLayout);
+        homeLayout.setHorizontalGroup(
+                homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(welcomeText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(homeLayout.createSequentialGroup()
+                                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(viewTransactionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(withdrawalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(199, 199, 199)
+                                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(viewBalanceBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(transferBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(homeLayout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addGap(63, 63, 63)
+                                                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(265, 265, 265))
+        );
+        homeLayout.setVerticalGroup(
+                homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homeLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(welcomeText)
+                                .addGap(31, 31, 31)
+                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(90, 90, 90)
+                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(withdrawalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(viewBalanceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(114, 114, 114)
+                                .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(viewTransactionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(transferBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(home, "card4");
+
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator1)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(mainPanel)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(hiddenField)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(Heading, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(Heading, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(hiddenField, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
+                                                .addGap(16, 16, 16)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, 489, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+        );
+
         pack();
     }
 
