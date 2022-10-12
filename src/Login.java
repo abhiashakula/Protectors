@@ -21,7 +21,7 @@ public class Login extends JFrame {
      * Creates new form ATMmain
      */
     String appTitle = "Fingerprint Authentication";
-    String key = "";
+    //String key = "";
 
     Connection conn;
 
