@@ -197,7 +197,7 @@ public class Login extends JFrame {
         navToSignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         navToSignup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // navToSignupMouseClicked(evt);
+                 navToSignupMouseClicked(evt);
             }
         });
 
@@ -274,11 +274,100 @@ public class Login extends JFrame {
                                 .addContainerGap())
         );
 
+        userNameSignup.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        userNameSignup.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userNameSignup.setToolTipText("Username");
+        userNameSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //userNameSignupActionPerformed(evt);
+            }
+        });
 
+        addFingerprint.setBackground(new java.awt.Color(255, 255, 255));
+        addFingerprint.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        addFingerprint.setText("Add Fingerprint");
+        addFingerprint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //addFingerprintActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Create an Account");
+
+        createAcccountBtn.setBackground(new java.awt.Color(0, 255, 0));
+        createAcccountBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        createAcccountBtn.setText("Create Account");
+        createAcccountBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //createAcccountBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(143, 143, 152));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setLabelFor(home);
+        jLabel6.setText("Place your fingerand press add fingerprint button");
+        jLabel6.setToolTipText("");
+
+        navToLogin.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        navToLogin.setForeground(new java.awt.Color(77, 77, 223));
+        navToLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        navToLogin.setLabelFor(home);
+        navToLogin.setText("Click here to login");
+        navToLogin.setToolTipText("");
+        navToLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        navToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                //navToLoginMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SignupLayout = new javax.swing.GroupLayout(Signup);
+        Signup.setLayout(SignupLayout);
+        SignupLayout.setHorizontalGroup(
+                SignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SignupLayout.createSequentialGroup()
+                                .addContainerGap(378, Short.MAX_VALUE)
+                                .addGroup(SignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignupLayout.createSequentialGroup()
+                                                .addGroup(SignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(addFingerprint, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(userNameSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jLabel6))
+                                                .addGap(364, 364, 364))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignupLayout.createSequentialGroup()
+                                                .addGroup(SignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(createAcccountBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                                        .addComponent(navToLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(441, 441, 441))))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        SignupLayout.setVerticalGroup(
+                SignupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SignupLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel5)
+                                .addGap(75, 75, 75)
+                                .addComponent(userNameSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(addFingerprint, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addGap(53, 53, 53)
+                                .addComponent(createAcccountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(navToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(Signup, "card2");
         pack();
     }
 
-   /* private boolean navToPanel(JPanel jpanel) {
+   private boolean navToPanel(JPanel jpanel) {
 
         this.mainPanel.removeAll();
         this.mainPanel.add(jpanel);
@@ -291,7 +380,7 @@ public class Login extends JFrame {
           private void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
            // TODO add your handling code here:
                  navToPanel(this.Signup);
-            }//GEN-LAST:event_navToSignupMouseClicked*/
+            }//GEN-LAST:event_navToSignupMouseClicked
         public static void main (String args[]){
             /* Set the Nimbus look and feel */
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
