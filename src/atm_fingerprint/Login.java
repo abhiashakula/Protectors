@@ -9,6 +9,7 @@
 package atm_fingerprint;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +91,7 @@ public class Login extends JFrame {
         initComponents();
         filePath = System.getProperty("user.dir");
         filePath += "\\AnsiTemplate.ansi";
-        //initDatabase();
+        initDatabase();
 
     }
 
@@ -360,7 +361,7 @@ public class Login extends JFrame {
         viewBalanceBtn.setText("View Balance");
         viewBalanceBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //viewBalanceBtnActionPerformed(evt);
+                viewBalanceBtnActionPerformed(evt);
             }
         });
 
@@ -579,7 +580,24 @@ public class Login extends JFrame {
 
         updateLastTranscationTable();
     }//GEN-LAST:event_viewTransactionBtnActionPerformed
+    private void viewBalanceBtnActionPerformed(ActionEvent evt) {
+        try {
+            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = 'Abhilash' ";
+            PreparedStatement balancePstmt = (PreparedStatement)this.conn.prepareStatement(balanceQuerry);
+            //balancePstmt.setString(1, this.hiddenField.getText());
+            ResultSet rs = balancePstmt.executeQuery();
 
+            int balance;
+            for(balance = 0; rs.next(); balance = rs.getInt("balance")) {
+            }
+
+            JOptionPane.showMessageDialog(this.rootPane, "Your current balance : Rs " + balance, this.appTitle, 1);
+        } catch (SQLException var6) {
+            JOptionPane.showMessageDialog(this.rootPane, "Some error has been occured, please try again later", this.appTitle, 0);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, (String)null, var6);
+        }
+
+    }
     private void loginNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginNameActionPerformed
@@ -612,12 +630,12 @@ public class Login extends JFrame {
         }
     }
 
-    /*private void initDatabase() throws ClassNotFoundException, SQLException {
+    private void initDatabase() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost/atm", "root", "");
         System.out.println("Database is connected");
-    }*/
+    }
 
     private void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
            // TODO add your handling code here:
