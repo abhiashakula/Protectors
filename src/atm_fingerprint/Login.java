@@ -5,9 +5,11 @@
  */
 
 
+
+package atm_fingerprint;
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -88,6 +90,7 @@ public class Login extends JFrame {
         initComponents();
         filePath = System.getProperty("user.dir");
         filePath += "\\AnsiTemplate.ansi";
+        //initDatabase();
 
     }
 
@@ -292,7 +295,7 @@ public class Login extends JFrame {
         navToLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         navToLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                //navToLoginMouseClicked(evt);
+                navToLoginMouseClicked(evt);
             }
         });
 
@@ -366,7 +369,7 @@ public class Login extends JFrame {
         viewTransactionBtn.setText("View Transactions");
         viewTransactionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                // viewTransactionBtnActionPerformed(evt);
+                 viewTransactionBtnActionPerformed(evt);
             }
         });
 
@@ -432,6 +435,82 @@ public class Login extends JFrame {
 
         mainPanel.add(home, "card4");
 
+
+        navToHome2.setBackground(new java.awt.Color(255, 0, 0));
+        navToHome2.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        navToHome2.setForeground(new java.awt.Color(255, 255, 255));
+        navToHome2.setText("< Home");
+        navToHome2.setBorder(null);
+        navToHome2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navToHome2ActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel12.setText("Your Transactions");
+
+        lastTransactionTable.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lastTransactionTable.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null},
+                        {null, null, null, null, null}
+                },
+                new String [] {
+                        "Action", "Amount", "Date", "From Name", "To Name"
+                }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                    false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        lastTransactionTable.setFocusable(false);
+        lastTransactionTable.setRowHeight(25);
+        lastTransactionTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(lastTransactionTable);
+
+        javax.swing.GroupLayout lastTransactionsLayout = new javax.swing.GroupLayout(lastTransactions);
+        lastTransactions.setLayout(lastTransactionsLayout);
+        lastTransactionsLayout.setHorizontalGroup(
+                lastTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(lastTransactionsLayout.createSequentialGroup()
+                                .addGroup(lastTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(lastTransactionsLayout.createSequentialGroup()
+                                                .addGap(454, 454, 454)
+                                                .addComponent(jLabel12)
+                                                .addGap(61, 61, 61)
+                                                .addComponent(navToHome2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(lastTransactionsLayout.createSequentialGroup()
+                                                .addGap(186, 186, 186)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(189, Short.MAX_VALUE))
+        );
+        lastTransactionsLayout.setVerticalGroup(
+                lastTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(lastTransactionsLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(lastTransactionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel12)
+                                        .addComponent(navToHome2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))
+        );
+
+        mainPanel.add(lastTransactions, "card2");
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -466,7 +545,24 @@ public class Login extends JFrame {
         pack();
     }
 
-   private boolean navToPanel(JPanel jpanel) {
+
+    private void navToHome() {
+        navToPanel(this.home);
+    }
+
+    private void navToHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome2ActionPerformed
+        // TODO add your handling code here:
+
+        navToHome();
+    }
+
+    private void navToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToLoginMouseClicked
+        // TODO add your handling code here:
+
+        navToPanel(this.Authentication);
+    }//GEN-LAST:event_navToLoginMouseClicked
+
+    private boolean navToPanel(JPanel jpanel) {
 
         this.mainPanel.removeAll();
         this.mainPanel.add(jpanel);
@@ -476,7 +572,54 @@ public class Login extends JFrame {
         return true;
     }
 
-          private void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
+    private void viewTransactionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTransactionBtnActionPerformed
+
+//        Navigate to Last transaction panel
+        navToPanel(this.lastTransactions);
+
+        updateLastTranscationTable();
+    }//GEN-LAST:event_viewTransactionBtnActionPerformed
+
+    private void loginNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginNameActionPerformed
+
+    private void updateLastTranscationTable() {
+
+        DefaultTableModel model = (DefaultTableModel) this.lastTransactionTable.getModel();
+        model.setRowCount(0);
+
+        try {
+            String querry = "SELECT * FROM `transactions` WHERE `toName` = ? OR `fromName` = ?";
+            PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(querry);
+
+            pstmt.setString(1, this.hiddenField.getText());
+            pstmt.setString(2, this.hiddenField.getText());
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                System.out.println(rs.getString("action"));
+                model.addRow(new Object[]{rs.getString("action"), rs.getInt("amount"),
+                        rs.getString("datetime"), rs.getString("fromName"), rs.getString("toName")});
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /*private void initDatabase() throws ClassNotFoundException, SQLException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost/atm", "root", "");
+        System.out.println("Database is connected");
+    }*/
+
+    private void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
            // TODO add your handling code here:
                  navToPanel(this.Signup);
             }//GEN-LAST:event_navToSignupMouseClicked
