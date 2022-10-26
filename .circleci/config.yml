@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Build
-        command: javac Login.java
+          name: Build
+          command: javac Login.java
       - run:
-        name: compile
-        command: java login
+          name: compile
+          command: java login
 
-  workflows:
-    backendCompiling:
-      jobs:
-        - build-and-compile-java
+workflows:
+  backendCompiling:
+    jobs:
+      - build-and-compile-java
