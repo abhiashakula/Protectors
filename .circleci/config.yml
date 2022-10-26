@@ -13,7 +13,7 @@ jobs:
           name: Compile
           command: java Login
 
-workflows:
+#workflows:
     backendCompiling:
       jobs:
        # - build-and-compile-java
