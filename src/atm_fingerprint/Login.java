@@ -382,7 +382,7 @@ public class Login extends JFrame {
         transferBtn.setText("Money Transfer");
         transferBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                // transferBtnActionPerformed(evt);
+                 transferBtnActionPerformed(evt);
             }
         });
 
@@ -611,6 +611,123 @@ public class Login extends JFrame {
 
         mainPanel.add(withDrawalPanel, "card2");
 
+        transferAccountName.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        transferAccountName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        transferAccountName.setToolTipText("Username");
+        transferAccountName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferAccountNameActionPerformed(evt);
+            }
+        });
+
+        navToHome1.setBackground(new java.awt.Color(255, 0, 0));
+        navToHome1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        navToHome1.setForeground(new java.awt.Color(255, 255, 255));
+        navToHome1.setText("< Home");
+        navToHome1.setBorder(null);
+        navToHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navToHome1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel9.setText("Money Transfer");
+
+        transferConformedBtn.setBackground(new java.awt.Color(0, 255, 0));
+        transferConformedBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        transferConformedBtn.setText("Transfer");
+        transferConformedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferConformedBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(143, 143, 152));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setLabelFor(home);
+        jLabel10.setText("Enter the account name");
+        jLabel10.setToolTipText("");
+
+        navToSignup2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        navToSignup2.setForeground(new java.awt.Color(77, 77, 223));
+        navToSignup2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        navToSignup2.setLabelFor(home);
+        navToSignup2.setText("Cancel");
+        navToSignup2.setToolTipText("");
+        navToSignup2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        navToSignup2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                navToSignup2MouseClicked(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(143, 143, 152));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setLabelFor(home);
+        jLabel11.setText("Enter the amount");
+        jLabel11.setToolTipText("");
+
+        transferAmount.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        transferAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        transferAmount.setToolTipText("Username");
+        transferAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transferAmountActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout moneyTransferPanelLayout = new javax.swing.GroupLayout(moneyTransferPanel);
+        moneyTransferPanel.setLayout(moneyTransferPanelLayout);
+        moneyTransferPanelLayout.setHorizontalGroup(
+                moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(moneyTransferPanelLayout.createSequentialGroup()
+                                .addContainerGap(378, Short.MAX_VALUE)
+                                .addGroup(moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moneyTransferPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addGap(109, 109, 109)
+                                                .addComponent(navToHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(251, 251, 251))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moneyTransferPanelLayout.createSequentialGroup()
+                                                .addGroup(moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel10)
+                                                        .addGroup(moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addGroup(moneyTransferPanelLayout.createSequentialGroup()
+                                                                        .addComponent(transferConformedBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addGap(18, 18, 18)
+                                                                        .addComponent(navToSignup2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(transferAccountName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jLabel11)
+                                                        .addComponent(transferAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(355, 355, 355))))
+        );
+        moneyTransferPanelLayout.setVerticalGroup(
+                moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(moneyTransferPanelLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel9)
+                                        .addComponent(navToHome1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(transferAccountName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(transferAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addGroup(moneyTransferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(transferConformedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(navToSignup2))
+                                .addContainerGap(89, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(moneyTransferPanel, "card2");
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -823,7 +940,135 @@ public class Login extends JFrame {
 
         navToHome();
     }//GEN-LAST:event_navToSignup1MouseClicked
-        public static void main (String args[]){
+
+    private void transferAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_transferAmountActionPerformed
+
+    private void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
+        // TODO add your handling code here:
+//        Navigate to Money Transfer panel
+        navToPanel(this.moneyTransferPanel);
+
+    }//GEN-LAST:event_transferBtnActionPerformed
+
+    private void transferAccountNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAccountNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_transferAccountNameActionPerformed
+
+    private void transferConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferConformedBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+
+//            Check if the balance is sufficient to transfer. If suffecient, Check if the transfer user exists.
+//            If exists, then transfer the amount and reflect it in both the users entry and transcation history
+            String transferAccountName = this.transferAccountName.getText();
+            int transferAmount = Integer.parseInt(this.transferAmount.getText());
+
+            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = 'rachana' ";
+            PreparedStatement balancePstmt = (PreparedStatement) conn.prepareStatement(balanceQuerry);
+
+            //balancePstmt.setString(1, this.hiddenField.getText());
+
+            ResultSet rs = balancePstmt.executeQuery();
+            int balance = 0;
+            while (rs.next()) {
+                balance = rs.getInt("balance");
+            }
+
+            if (!checkUser(transferAccountName)) {
+                JOptionPane.showMessageDialog(rootPane, "No Account named " + transferAccountName + " exists", appTitle, JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (transferAmount > balance) {
+                JOptionPane.showMessageDialog(rootPane, "Insufficient balance", appTitle, JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+
+                balance = balance - transferAmount;
+                String fromQuerry = "UPDATE `users` SET `balance` = ? WHERE `name` = 'rachana'";
+                PreparedStatement fromPstmt = (PreparedStatement) conn.prepareStatement(fromQuerry);
+                fromPstmt.setInt(1, balance);
+             //   fromPstmt.setString(2, this.hiddenField.getText());
+                fromPstmt.execute();
+
+                String balanceToQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
+                PreparedStatement balanceToPstmt = (PreparedStatement) conn.prepareStatement(balanceToQuerry);
+                balanceToPstmt.setString(1, transferAccountName);
+                ResultSet balanceToRs = balanceToPstmt.executeQuery();
+                int balanceTo = 0;
+                while (balanceToRs.next()) {
+                    balanceTo = balanceToRs.getInt("balance");
+                }
+                balanceTo += transferAmount;
+
+                String toQuerry = "UPDATE `users` SET `balance` = ? WHERE `name` = ?";
+                PreparedStatement toPstmt = (PreparedStatement) conn.prepareStatement(toQuerry);
+                toPstmt.setInt(1, balanceTo);
+                toPstmt.setString(2, transferAccountName);
+                toPstmt.execute();
+
+               /* String transactionQuerry = "INSERT INTO `transactions`(`amount`, `datetime`, `fromName`, `toName`, `action`) VALUES ( ?, ?, ?, ?, ?)";
+                PreparedStatement transactionPstmt = (PreparedStatement) conn.prepareStatement(transactionQuerry);
+                transactionPstmt.setInt(1, transferAmount);
+                transactionPstmt.setString(2, currentDateTime());
+                transactionPstmt.setString(3, this.hiddenField.getText());
+                transactionPstmt.setString(4, transferAccountName);
+                transactionPstmt.setString(5, "transfer");
+                transactionPstmt.execute();*/
+
+                JOptionPane.showMessageDialog(rootPane, "Amount Transaction Completed", appTitle, JOptionPane.OK_OPTION);
+                navToPanel(this.home);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_transferConformedBtnActionPerformed
+
+    private void navToSignup2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup2MouseClicked
+        // TODO add your handling code here:
+        navToHome();
+
+    }//GEN-LAST:event_navToSignup2MouseClicked
+
+    private boolean checkUser(String name) {
+
+        String querry = "SELECT `id` FROM `users` WHERE `name` = ?";
+
+        try {
+            PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(querry);
+            pstmt.setString(1, name);
+
+            ResultSet rs = pstmt.executeQuery();
+            int count = 0;
+            while (rs.next()) {
+                count++;
+            }
+
+            if (count > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            return true;
+        }
+
+    }
+
+    private void navToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome1ActionPerformed
+        // TODO add your handling code here:
+        navToHome();
+    }//GEN-LAST:event_navToHome1ActionPerforme
+
+    public static void main (String args[]){
             /* Set the Nimbus look and feel */
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
             /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
