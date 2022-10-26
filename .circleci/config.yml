@@ -1,7 +1,7 @@
 version : 2.1
 jobs:
   build-and-compile-java:
-    working_directory: ~/src/
+    working_directory: ~/Protectors/src
     docker:
       - image: cimg/openjdk:17.0
     steps:
