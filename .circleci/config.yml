@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: javac -d Login.java
+          command: javac Login.java
       - run:
           name: compile
           command: java login
