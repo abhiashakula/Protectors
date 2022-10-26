@@ -1,19 +1,19 @@
-version : 2.1
-jobs:
-  build-and-compile-java:
-    working_directory: ~/src/atm_fingerprint
-    docker:
-      - image: cimg/openjdk:17.0
-    steps:
-      - checkout
-      - run:
-          name: Build
-          command: javac Login.java
-      - run:
-          name: compile
-          command: java Login
-
-workflows:
-    backendCompiling:
-      jobs:
-        - build-and-compile-java
+#version : 2.1
+#jobs:
+#  build-and-compile-java:
+#    working_directory: ~/src/atm_fingerprint
+#    docker:
+#      - image: cimg/openjdk:17.0
+#    steps:
+#      - checkout
+#      - run:
+#          name: Build
+#          command: javac Login.java
+#      - run:
+#          name: compile
+#          command: java Login
+#
+#workflows:
+#    backendCompiling:
+#      jobs:
+#        #- build-and-compile-java
