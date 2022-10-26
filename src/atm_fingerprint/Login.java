@@ -11,8 +11,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 
 /**
  *
@@ -352,7 +355,7 @@ public class Login extends JFrame {
         withdrawalBtn.setText("Withdrawal");
         withdrawalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //withdrawalBtnActionPerformed(evt);
+                withdrawalBtnActionPerformed(evt);
             }
         });
 
@@ -512,6 +515,102 @@ public class Login extends JFrame {
 
         mainPanel.add(lastTransactions, "card2");
 
+
+        withdrawAmount.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        withdrawAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        withdrawAmount.setToolTipText("Username");
+        withdrawAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                withdrawAmountActionPerformed(evt);
+            }
+        });
+
+        navToHome.setBackground(new java.awt.Color(255, 0, 0));
+        navToHome.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        navToHome.setForeground(new java.awt.Color(255, 255, 255));
+        navToHome.setText("< Home");
+        navToHome.setBorder(null);
+        navToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                navToHomeActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel7.setText("Withdrawal");
+
+        withdrawConformedBtn.setBackground(new java.awt.Color(0, 255, 0));
+        withdrawConformedBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        withdrawConformedBtn.setText("Withdraw");
+        withdrawConformedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                withdrawConformedBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(143, 143, 152));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setLabelFor(home);
+        jLabel8.setText("Enter the amount");
+        jLabel8.setToolTipText("");
+
+        navToSignup1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        navToSignup1.setForeground(new java.awt.Color(77, 77, 223));
+        navToSignup1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        navToSignup1.setLabelFor(home);
+        navToSignup1.setText("Cancel");
+        navToSignup1.setToolTipText("");
+        navToSignup1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        navToSignup1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                navToSignup1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout withDrawalPanelLayout = new javax.swing.GroupLayout(withDrawalPanel);
+        withDrawalPanel.setLayout(withDrawalPanelLayout);
+        withDrawalPanelLayout.setHorizontalGroup(
+                withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(withDrawalPanelLayout.createSequentialGroup()
+                                .addContainerGap(378, Short.MAX_VALUE)
+                                .addGroup(withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, withDrawalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addGap(141, 141, 141)
+                                                .addComponent(navToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(251, 251, 251))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, withDrawalPanelLayout.createSequentialGroup()
+                                                .addGroup(withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel8)
+                                                        .addGroup(withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                .addGroup(withDrawalPanelLayout.createSequentialGroup()
+                                                                        .addComponent(withdrawConformedBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addGap(18, 18, 18)
+                                                                        .addComponent(navToSignup1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(withdrawAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(355, 355, 355))))
+        );
+        withDrawalPanelLayout.setVerticalGroup(
+                withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(withDrawalPanelLayout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addGroup(withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(navToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(98, 98, 98)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(withdrawAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addGroup(withDrawalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(withdrawConformedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(navToSignup1))
+                                .addContainerGap(140, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(withDrawalPanel, "card2");
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -580,6 +679,21 @@ public class Login extends JFrame {
 
         updateLastTranscationTable();
     }//GEN-LAST:event_viewTransactionBtnActionPerformed
+
+    private void withdrawalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawalBtnActionPerformed
+        // TODO add your handling code here:
+
+//        Navigate to Withdrawal panel
+        navToPanel(this.withDrawalPanel);
+    }//GEN-LAST:event_withdrawalBtnActionPerformed
+
+    private String currentDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+
+        return dateFormat.format(date);
+    }
+
     private void viewBalanceBtnActionPerformed(ActionEvent evt) {
         try {
             String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = 'Abhilash' ";
@@ -630,6 +744,68 @@ public class Login extends JFrame {
         }
     }
 
+    private void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_withdrawAmountActionPerformed
+
+    private void navToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHomeActionPerformed
+        // TODO add your handling code here:
+
+        navToHome();
+    }//GEN-LAST:event_navToHomeActionPerformed
+
+    private void withdrawConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawConformedBtnActionPerformed
+        try {
+
+//            Get the balance from the database and check if the balance is sufficient to withdraw,
+//            If sufficient, then withdraw the amount and reflect it in database,
+//            Else, display the error message.
+            int withDrawAmount = Integer.parseInt(this.withdrawAmount.getText());
+            String querry = "SELECT `balance` FROM `users` WHERE `name` = 'Yash'";
+            PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(querry);
+
+           // pstmt.setString(1, this.hiddenField.getText());
+
+            ResultSet rs = pstmt.executeQuery();
+            int balance = 0;
+
+            while (rs.next()) {
+
+                balance = rs.getInt("balance");
+            }
+
+            if (balance < withDrawAmount) {
+                JOptionPane.showMessageDialog(rootPane, "Insufficient balance", appTitle, JOptionPane.ERROR_MESSAGE);
+            } else {
+                balance = balance - withDrawAmount;
+
+//                Withdrawal update on balance
+                String Updatequerry = "UPDATE `users` SET `balance` = ? WHERE `name` = 'Yash'";
+                PreparedStatement Updatepstmt = (PreparedStatement) conn.prepareStatement(Updatequerry);
+                Updatepstmt.setInt(1, balance);
+              //  Updatepstmt.setString(2, this.hiddenField.getText());
+
+                Updatepstmt.execute();
+
+//              Withdrawal update on transactions
+              /*  String Transactionquerry = "INSERT INTO `transactions`(`amount`, `datetime`, `action`, `fromName`) VALUES ( ?, ?, ?, ?)";
+                PreparedStatement Transactionpstmt = (PreparedStatement) conn.prepareStatement(Transactionquerry);
+                Transactionpstmt.setInt(1, withDrawAmount);
+                Transactionpstmt.setString(2, currentDateTime());
+                Transactionpstmt.setString(3, "withdrawal");
+                Transactionpstmt.setString(4, this.hiddenField.getText());
+
+                Transactionpstmt.execute();*/
+                JOptionPane.showMessageDialog(rootPane, "Please collect your cash. Visit us again", appTitle, JOptionPane.OK_OPTION);
+                navToPanel(this.home);
+
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Some error has occured, please try again", appTitle, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_withdrawConformedBtnActionPerformed
+
     private void initDatabase() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
@@ -641,6 +817,12 @@ public class Login extends JFrame {
            // TODO add your handling code here:
                  navToPanel(this.Signup);
             }//GEN-LAST:event_navToSignupMouseClicked
+
+    private void navToSignup1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup1MouseClicked
+        // TODO add your handling code here:
+
+        navToHome();
+    }//GEN-LAST:event_navToSignup1MouseClicked
         public static void main (String args[]){
             /* Set the Nimbus look and feel */
             //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
