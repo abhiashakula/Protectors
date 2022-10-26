@@ -1,6 +1,6 @@
 FROM openjdk-17.0
 
-#WORKDIR /springServer
+#WORKDIR /Protectors
 COPY . .
 RUN javac Login.java
 
