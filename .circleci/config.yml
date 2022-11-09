@@ -1,9 +1,9 @@
 version : 2.1
 jobs:
   build:
-    working_directory: ~/Protectors
+    working_directory: ~/protectors
     docker:
-      - image: "circleci/Protectors"
+      - image: "circleci/protectors"
     steps:
       - checkout
       - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
