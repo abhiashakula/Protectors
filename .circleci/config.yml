@@ -1,6 +1,6 @@
 version : 2.1
 jobs:
-  build-and-compile-java:
+  build:
     working_directory: ~/Protectors
     docker:
       - image: "circleci/Protectors"
@@ -17,6 +17,9 @@ jobs:
 
 
 workflows:
-  backendCompiling:
+  build_and_test:
     jobs:
-      - build-and-compile-java
+      - build
+      - test:
+          requires:
+            - build
