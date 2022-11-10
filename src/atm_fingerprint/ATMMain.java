@@ -1114,10 +1114,10 @@ public class ATMMain extends JFrame {
             String transferAccountName = this.transferAccountName.getText();
             int transferAmount = Integer.parseInt(this.transferAmount.getText());
 
-            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = 'rachana' ";
+            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
             PreparedStatement balancePstmt = (PreparedStatement) conn.prepareStatement(balanceQuerry);
 
-            //balancePstmt.setString(1, this.hiddenField.getText());
+            balancePstmt.setString(1, this.hiddenField.getText());
 
             ResultSet rs = balancePstmt.executeQuery();
             int balance = 0;
@@ -1133,13 +1133,19 @@ public class ATMMain extends JFrame {
             if (transferAmount > balance) {
                 JOptionPane.showMessageDialog(rootPane, "Insufficient balance", appTitle, JOptionPane.ERROR_MESSAGE);
                 return;
-            } else {
+            }
+            if(!(transferAmount >0)){
+
+                JOptionPane.showMessageDialog(rootPane, "Please enter amount greater than zero", appTitle, JOptionPane.ERROR_MESSAGE);
+                return;
+
+            }else {
 
                 balance = balance - transferAmount;
-                String fromQuerry = "UPDATE `users` SET `balance` = ? WHERE `name` = 'rachana'";
+                String fromQuerry = "UPDATE `users` SET `balance` = ? WHERE `name` = ?";
                 PreparedStatement fromPstmt = (PreparedStatement) conn.prepareStatement(fromQuerry);
                 fromPstmt.setInt(1, balance);
-             //   fromPstmt.setString(2, this.hiddenField.getText());
+                fromPstmt.setString(2, this.hiddenField.getText());
                 fromPstmt.execute();
 
                 String balanceToQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
@@ -1158,14 +1164,14 @@ public class ATMMain extends JFrame {
                 toPstmt.setString(2, transferAccountName);
                 toPstmt.execute();
 
-               /* String transactionQuerry = "INSERT INTO `transactions`(`amount`, `datetime`, `fromName`, `toName`, `action`) VALUES ( ?, ?, ?, ?, ?)";
+                String transactionQuerry = "INSERT INTO `transactions`(`amount`, `datetime`, `fromName`, `toName`, `action`) VALUES ( ?, ?, ?, ?, ?)";
                 PreparedStatement transactionPstmt = (PreparedStatement) conn.prepareStatement(transactionQuerry);
                 transactionPstmt.setInt(1, transferAmount);
                 transactionPstmt.setString(2, currentDateTime());
                 transactionPstmt.setString(3, this.hiddenField.getText());
                 transactionPstmt.setString(4, transferAccountName);
                 transactionPstmt.setString(5, "transfer");
-                transactionPstmt.execute();*/
+                transactionPstmt.execute();
 
                 JOptionPane.showMessageDialog(rootPane, "Amount Transaction Completed", appTitle, JOptionPane.OK_OPTION);
                 navToPanel(this.home);
@@ -1215,7 +1221,7 @@ public class ATMMain extends JFrame {
     private void navToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome1ActionPerformed
         // TODO add your handling code here:
         navToHome();
-    }//GEN-LAST:event_navToHome1ActionPerforme
+    }//GEN-LAST:event_navToHome1ActionPerformed
 
     public static void main (String args[]){
             /* Set the Nimbus look and feel */
