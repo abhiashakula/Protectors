@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="resources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/Protectors/resources/jdbc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/commons-io-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/fastutil-8.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/fingerprintio-1.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/gson-2.8.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/jackson-annotations-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/jackson-core-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/jackson-databind-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/jackson-dataformat-cbor-2.12.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/jnbis-2.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/noexception-1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/sourceafis-3.13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/commons-codec-1.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/commons-lang-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/MANTRA.MFS100.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/mysql-connector-java-5.0.5-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/slf4j-simple-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/resources/slf4j.api-1.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

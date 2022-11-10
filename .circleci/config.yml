@@ -1,19 +1,25 @@
 version : 2.1
 jobs:
-  build-and-compile-java:
-    working_directory: ../src/atm_fingerprint/
+  build:
+    working_directory: ~/protectors
     docker:
-      - image: cimg/openjdk:17.0
+      - image: "circleci/protectors"
     steps:
       - checkout
-      - run:
-          name: Build
-          command: javac Login.java
-      - run:
-          name: compile
-          command: java login
+      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+  test: 
+    working_directory: ~/Protectors
+    docker:
+      - image: "circleci/Protectors"
+    steps:
+      - checkout
+      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+
 
 workflows:
-  backendCompiling:
+  build_and_test:
     jobs:
-      - build-and-compile-java
+      - build
+      - test:
+          requires:
+            - build
