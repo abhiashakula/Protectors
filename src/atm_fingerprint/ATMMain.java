@@ -962,9 +962,9 @@ public class ATMMain extends JFrame {
 
     private void viewBalanceBtnActionPerformed(ActionEvent evt) {
         try {
-            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = 'Abhilash' ";
+            String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
             PreparedStatement balancePstmt = (PreparedStatement)this.conn.prepareStatement(balanceQuerry);
-            //balancePstmt.setString(1, this.hiddenField.getText());
+            balancePstmt.setString(1, this.hiddenField.getText());
             ResultSet rs = balancePstmt.executeQuery();
 
             int balance;
@@ -1027,10 +1027,10 @@ public class ATMMain extends JFrame {
 //            If sufficient, then withdraw the amount and reflect it in database,
 //            Else, display the error message.
             int withDrawAmount = Integer.parseInt(this.withdrawAmount.getText());
-            String querry = "SELECT `balance` FROM `users` WHERE `name` = 'Yash'";
+            String querry = "SELECT `balance` FROM `users` WHERE `name` = ?";
             PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(querry);
 
-           // pstmt.setString(1, this.hiddenField.getText());
+            pstmt.setString(1, this.hiddenField.getText());
 
             ResultSet rs = pstmt.executeQuery();
             int balance = 0;
@@ -1046,22 +1046,22 @@ public class ATMMain extends JFrame {
                 balance = balance - withDrawAmount;
 
 //                Withdrawal update on balance
-                String Updatequerry = "UPDATE `users` SET `balance` = ? WHERE `name` = 'Yash'";
-                PreparedStatement Updatepstmt = (PreparedStatement) conn.prepareStatement(Updatequerry);
+                String Updatequerry = "UPDATE `users` SET `balance` = ? WHERE `name` = ?";
+                com.mysql.jdbc.PreparedStatement Updatepstmt = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(Updatequerry);
                 Updatepstmt.setInt(1, balance);
-              //  Updatepstmt.setString(2, this.hiddenField.getText());
+                Updatepstmt.setString(2, this.hiddenField.getText());
 
                 Updatepstmt.execute();
 
 //              Withdrawal update on transactions
-              /*  String Transactionquerry = "INSERT INTO `transactions`(`amount`, `datetime`, `action`, `fromName`) VALUES ( ?, ?, ?, ?)";
-                PreparedStatement Transactionpstmt = (PreparedStatement) conn.prepareStatement(Transactionquerry);
+                String Transactionquerry = "INSERT INTO `transactions`(`amount`, `datetime`, `action`, `fromName`) VALUES ( ?, ?, ?, ?)";
+                com.mysql.jdbc.PreparedStatement Transactionpstmt = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(Transactionquerry);
                 Transactionpstmt.setInt(1, withDrawAmount);
                 Transactionpstmt.setString(2, currentDateTime());
                 Transactionpstmt.setString(3, "withdrawal");
                 Transactionpstmt.setString(4, this.hiddenField.getText());
 
-                Transactionpstmt.execute();*/
+                Transactionpstmt.execute();
                 JOptionPane.showMessageDialog(rootPane, "Please collect your cash. Visit us again", appTitle, JOptionPane.OK_OPTION);
                 navToPanel(this.home);
 
