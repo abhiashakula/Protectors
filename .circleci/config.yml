@@ -2,7 +2,7 @@ version : 2.1
 jobs:
   build:
     working_directory: ~/Protectors
-    docker2:
+    docker:
       - image: "cimg/openjdk:17.0"
     steps:
       - checkout
