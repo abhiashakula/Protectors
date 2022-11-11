@@ -1,6 +1,6 @@
-FROM openjdk-17.0
+FROM openjdk:19
 
-#WORKDIR /Protectors
-COPY . /src/atm_fingerprint
-RUN javac Login.java
-RUN java Login
+
+COPY / /app
+WORKDIR /app
+CMD ["java" , "-classpath","out/production/Protectors", "atm_fingerprint.ATMMain"]
