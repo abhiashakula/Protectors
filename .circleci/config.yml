@@ -6,14 +6,14 @@ jobs:
       - image: openjdk:19 
     steps:
       - checkout
-      - run: Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
+      - run: ~/Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
   test: 
     working_directory: ~/Protectors
     docker:
       - image: openjdk:19
     steps:
       - checkout
-      - run: Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
+      - run: ~/Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
 
 
 workflows:
