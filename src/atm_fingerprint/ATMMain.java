@@ -1140,7 +1140,7 @@ public class ATMMain extends JFrame {
 
                 Updatepstmt.execute();
 
-//              Withdrawal update on transactions
+//              Withdrawal update on transactions table
                 String Transactionquerry = "INSERT INTO `transactions`(`amount`, `datetime`, `action`, `fromName`) VALUES ( ?, ?, ?, ?)";
                 com.mysql.jdbc.PreparedStatement Transactionpstmt = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(Transactionquerry);
                 Transactionpstmt.setInt(1, withDrawAmount);
