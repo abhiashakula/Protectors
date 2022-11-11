@@ -819,6 +819,10 @@ public class ATMMain extends JFrame {
 
     }//GEN-LAST:event_nextBtnActionPerformed
 
+    private void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameSignupActionPerformed
+
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
 
@@ -972,6 +976,49 @@ public class ATMMain extends JFrame {
             JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_createAcccountBtnActionPerformed
+
+    private void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
+
+        // TODO add your handling code here:
+        try{
+
+
+//            Capture the fingerprint
+            // captureFingerprint();
+            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+            int returnValue = jfc.showOpenDialog(null);
+            // int returnValue = jfc.showSaveDialog(null);
+
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = jfc.getSelectedFile();
+                filePath=selectedFile.getAbsolutePath();
+            }
+                         /* FileInputStream fin = new FileInputStream(selectedFile);
+
+                byte fingerprintByte[] = new byte[(int) selectedFile.length()];
+                fin.read(fingerprintByte);
+
+                 FingerData fingerData = new FingerData();
+                int rett = mfs100.AutoCapture(fingerData, timeout, false, false);
+
+
+                    //  Capture the fingerprint and store it in a temp file
+
+                    ISOTemplate = new byte[fingerData.ISOTemplate().length];
+                    System.arraycopy(fingerData.ISOTemplate(), 0, ISOTemplate, 0, fingerData.ISOTemplate().length);
+                    ANSITemplate = new byte[fingerData.ANSITemplate().length];
+                    System.arraycopy(fingerData.ANSITemplate(), 0, ANSITemplate, 0, fingerData.ANSITemplate().length);
+                    filePath = WriteBytesToFile("AnsiTemplate.ansi", fingerprintByte);
+                    //JOptionPane.showMessageDialog(rootPane, "Fingerprint added successfully", appTitle, JOptionPane.OK_OPTION);
+		}
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Oops..! Fingerprint not initialized\n" + "Error: " + mfs100.GetLastError() + " (" + String.valueOf(ret) + ")", appTitle, JOptionPane.ERROR_MESSAGE);
+        }*/
+        }catch(Exception e){
+            e.printStackTrace();}
+    }//GEN-LAST:event_addFingerprintActionPerformed
 
     private void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
 
