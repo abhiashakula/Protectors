@@ -3,17 +3,17 @@ jobs:
   build:
     working_directory: ~/protectors
     docker:
-      - image: "circleci/protectors"
+      - image: openjdk:19 
     steps:
       - checkout
-      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+      - run: Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
   test: 
     working_directory: ~/Protectors
     docker:
-      - image: "circleci/Protectors"
+      - image: openjdk:19
     steps:
       - checkout
-      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+      - run: Protectors/src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
 
 
 workflows:
