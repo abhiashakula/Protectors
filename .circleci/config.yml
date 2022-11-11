@@ -6,14 +6,14 @@ jobs:
       - image: "cimg/openjdk:17.0"
     steps:
       - checkout
-      - run: cd src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
+      - run: cd src/atm_fingerprint/ && java -cp ".:../resources/*" ATMMain.java
   test: 
     working_directory: ~/Protectors
     docker:
       - image: "cimg/openjdk:17.0"
     steps:
       - checkout
-      - run: cd src/atm_fingerprint/ && javac ATMMain.java && java ATMMain
+      - run: cd src/atm_fingerprint/  && java -cp ".:../resources/*" ATMMain.java
 
 
 workflows:
