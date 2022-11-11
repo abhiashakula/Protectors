@@ -3,19 +3,6 @@ jobs:
   build:
     working_directory: ~/Protectors
     docker:
-<<<<<<< HEAD
-      - image: openjdk:19 
-    steps:
-      - checkout
-      - run: Protectors\out\production\Protectors\atm_fingerprint && javac ATMMain.java && java ATMMain
-  test: 
-    working_directory: ~/Protectors
-    docker:
-      - image: openjdk:19
-    steps:
-      - checkout
-      - run: Protectors\out\production\Protectors\atm_fingerprint && javac ATMMain.java && java ATMMain
-=======
       - image: "cimg/openjdk:17.0"
     steps:
       - checkout
@@ -27,7 +14,6 @@ jobs:
     steps:
       - checkout
       - run: cd src/atm_fingerprint/  && java -cp ".:../resources/*" ATMMain.java
->>>>>>> 4de6a91c97db2d3897922a2d312636460d91ecac
 
 
 workflows:
