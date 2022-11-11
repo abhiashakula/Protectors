@@ -819,6 +819,10 @@ public class ATMMain extends JFrame {
 
     }//GEN-LAST:event_nextBtnActionPerformed
 
+    private void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameSignupActionPerformed
+
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
 
@@ -912,9 +916,21 @@ public class ATMMain extends JFrame {
         }
     }
 
-    private void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameSignupActionPerformed
+
+
+    private void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
+        try {
+
+//            Write in the database
+            writeInDatabase(filePath);
+        } catch (SQLException ex) {
+            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_createAcccountBtnActionPerformed
 
     private void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
 
@@ -958,20 +974,6 @@ public class ATMMain extends JFrame {
         }catch(Exception e){
             e.printStackTrace();}
     }//GEN-LAST:event_addFingerprintActionPerformed
-
-    private void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
-        try {
-
-//            Write in the database
-            writeInDatabase(filePath);
-        } catch (SQLException ex) {
-            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_createAcccountBtnActionPerformed
 
     private void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
 
