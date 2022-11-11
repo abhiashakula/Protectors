@@ -1,19 +1,19 @@
 version : 2.1
 jobs:
   build:
-    working_directory: ~/protectors
+    working_directory: ~/Protectors
     docker:
-      - image: "circleci/protectors"
+      - image: "cimg/openjdk:17.0"
     steps:
       - checkout
-      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+      - run: cd src/atm_fingerprint/ && java -cp ".:../resources/*" ATMMain.java
   test: 
     working_directory: ~/Protectors
     docker:
-      - image: "circleci/Protectors"
+      - image: "cimg/openjdk:17.0"
     steps:
       - checkout
-      - run: Protectors\src\atm_fingerprint\ && javac Login.java && java Login
+      - run: cd src/atm_fingerprint/  && java -cp ".:../resources/*" ATMMain.java
 
 
 workflows:
