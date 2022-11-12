@@ -1,6 +1,6 @@
-FROM openjdk:19
+FROM openjdk:17
 
+# WORKDIR /Pr
+COPY src .
 
-COPY / /app
-WORKDIR /app
-CMD ["java" , "-classpath","out/production/Protectors", "atm_fingerprint.ATMMain"]
+RUN java -cp ".:resources/*" atm_fingerprint/ATMMain.java
