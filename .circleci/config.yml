@@ -3,7 +3,9 @@ jobs:
   build:
     working_directory: ~/Protectors
     docker:
+
       - image: "cimg/openjdk:19.0"
+
     steps:
       - checkout
       - run: cd src/atm_fingerprint/ && java -cp ".:../resources/*" ATMMain.java

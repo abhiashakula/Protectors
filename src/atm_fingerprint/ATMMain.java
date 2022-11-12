@@ -280,7 +280,7 @@ public class ATMMain extends JFrame {
         userNameSignup.setToolTipText("Username");
         userNameSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //userNameSignupActionPerformed(evt);
+                userNameSignupActionPerformed(evt);
             }
         });
 
@@ -289,7 +289,7 @@ public class ATMMain extends JFrame {
         addFingerprint.setText("Add Fingerprint");
         addFingerprint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //addFingerprintActionPerformed(evt);
+                addFingerprintActionPerformed(evt);
             }
         });
 
@@ -302,7 +302,7 @@ public class ATMMain extends JFrame {
         createAcccountBtn.setText("Create Account");
         createAcccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //createAcccountBtnActionPerformed(evt);
+                createAcccountBtnActionPerformed(evt);
             }
         });
 
@@ -819,6 +819,10 @@ public class ATMMain extends JFrame {
 
     }//GEN-LAST:event_nextBtnActionPerformed
 
+    private void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameSignupActionPerformed
+
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
 
@@ -909,6 +913,89 @@ public class ATMMain extends JFrame {
             JOptionPane.showMessageDialog(rootPane, "Something is wrong, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
             navToPanel(this.Authentication);
             Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
+
+    private void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
+        try {
+
+//            Write in the database
+            writeInDatabase(filePath);
+        } catch (SQLException ex) {
+            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ATMMain.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_createAcccountBtnActionPerformed
+
+    private void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
+
+        // TODO add your handling code here:
+        try{
+
+
+//            Capture the fingerprint
+            // captureFingerprint();
+            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+            int returnValue = jfc.showOpenDialog(null);
+            // int returnValue = jfc.showSaveDialog(null);
+
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = jfc.getSelectedFile();
+                filePath=selectedFile.getAbsolutePath();
+            }
+                         /* FileInputStream fin = new FileInputStream(selectedFile);
+
+                byte fingerprintByte[] = new byte[(int) selectedFile.length()];
+                fin.read(fingerprintByte);
+
+                 FingerData fingerData = new FingerData();
+                int rett = mfs100.AutoCapture(fingerData, timeout, false, false);
+
+
+                    //  Capture the fingerprint and store it in a temp file
+
+                    ISOTemplate = new byte[fingerData.ISOTemplate().length];
+                    System.arraycopy(fingerData.ISOTemplate(), 0, ISOTemplate, 0, fingerData.ISOTemplate().length);
+                    ANSITemplate = new byte[fingerData.ANSITemplate().length];
+                    System.arraycopy(fingerData.ANSITemplate(), 0, ANSITemplate, 0, fingerData.ANSITemplate().length);
+                    filePath = WriteBytesToFile("AnsiTemplate.ansi", fingerprintByte);
+                    //JOptionPane.showMessageDialog(rootPane, "Fingerprint added successfully", appTitle, JOptionPane.OK_OPTION);
+		}
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Oops..! Fingerprint not initialized\n" + "Error: " + mfs100.GetLastError() + " (" + String.valueOf(ret) + ")", appTitle, JOptionPane.ERROR_MESSAGE);
+        }*/
+        }catch(Exception e){
+            e.printStackTrace();}
+    }//GEN-LAST:event_addFingerprintActionPerformed
+
+    private void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
+
+//        Check if the user already exists
+//      If exist, show the error message
+        if (checkUser(this.userNameSignup.getText().toString())) {
+            JOptionPane.showMessageDialog(rootPane, "User already exists", appTitle, JOptionPane.ERROR_MESSAGE);
+        } else {
+
+//          Else, do register in the database with the temporarly stored fingerprint file
+            String querry = "INSERT INTO `users`(`name`, `fingerprint`) VALUES (?, ?)";
+            com.mysql.jdbc.PreparedStatement pstmt = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(querry);
+
+            File file = new File(filePath);
+            FileInputStream input = new FileInputStream(file);
+
+            pstmt.setString(1, this.userNameSignup.getText().toString());
+            pstmt.setBinaryStream(2, input, (int) file.length());
+
+            pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(rootPane, "Account added successfully", appTitle, JOptionPane.OK_OPTION);
+            userNameSignup.setText("");
         }
     }
 
@@ -1053,7 +1140,7 @@ public class ATMMain extends JFrame {
 
                 Updatepstmt.execute();
 
-//              Withdrawal update on transactions
+//              Withdrawal update on transactions table
                 String Transactionquerry = "INSERT INTO `transactions`(`amount`, `datetime`, `action`, `fromName`) VALUES ( ?, ?, ?, ?)";
                 com.mysql.jdbc.PreparedStatement Transactionpstmt = (com.mysql.jdbc.PreparedStatement) conn.prepareStatement(Transactionquerry);
                 Transactionpstmt.setInt(1, withDrawAmount);
