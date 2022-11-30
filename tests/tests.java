@@ -32,4 +32,21 @@ public class tests {
             e.printStackTrace();
         }
     }
+
+    //clearing the DB after execution of all test cases as we are creating dummy user
+    @AfterAll
+    public static void clearDB() {
+        if(ui != null) {
+            String uQuerry = "DELETE FROM `users` WHERE `name` = 'NewTestUser' ";
+            PreparedStatement query;
+            try {
+                query = (PreparedStatement) ui.conn.prepareStatement(uQuerry);
+                query.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            ui.dispose();
+        }
+    }
 }
