@@ -22,6 +22,13 @@ import com.machinezoo.sourceafis.*;
 import java.io.*;
 import javax.swing.filechooser.FileSystemView;
 
+
+
+/**
+ *
+ * //specifying all classes and methods as public so that they can be accessed while creating the test cases
+ */
+
 /**
  *
  * @author NS
