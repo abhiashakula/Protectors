@@ -34,7 +34,7 @@ public class ATMMain extends JFrame {
     String appTitle = "Fingerprint Authentication";
     //String key = "";
 
-    Connection conn;
+    public Connection conn;
 
     boolean fingerprintAuthenticated = false;
 
