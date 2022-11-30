@@ -44,59 +44,59 @@ public class ATMMain extends JFrame {
 
     Thread trd;
 
-    private JPanel Authentication;
-    private JLabel Heading;
-    private JPanel Signup;
-    private JButton addFingerprint;
-    private JButton backBtnAuth;
-    private JButton createAcccountBtn;
-    private JPanel fingerPrintCheckPanel;
-    private JLabel hiddenField;
-    private JPanel home;
-    private JLabel jLabel10;
-    private JLabel jLabel11;
-    private JLabel jLabel12;
-    private JLabel jLabel13;
-    private JLabel jLabel14;
-    private JLabel jLabel15;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JLabel jLabel5;
-    private JLabel jLabel6;
-    private JLabel jLabel7;
-    private JLabel jLabel8;
-    private JLabel jLabel9;
-    private JScrollPane jScrollPane1;
-    private JSeparator jSeparator1;
-    private JTable lastTransactionTable;
-    private JPanel lastTransactions;
-    private JTextField loginName;
-    private JButton logoutBtn;
-    private JLayeredPane mainPanel;
-    private JPanel moneyTransferPanel;
-    private JButton navToHome;
-    private JButton navToHome1;
-    private JButton navToHome2;
-    private JLabel navToLogin;
-    private JLabel navToSignup;
-    private JLabel navToSignup1;
-    private JLabel navToSignup2;
-    private JButton nextBtn;
-    private JTextField transferAccountName;
-    private JTextField transferAmount;
-    private JButton transferBtn;
-    private JButton transferConformedBtn;
-    private JTextField userNameSignup;
-    private JButton viewBalanceBtn;
-    private JButton viewTransactionBtn;
-    private JLabel welcomeText;
-    private JPanel withDrawalPanel;
-    private JTextField withdrawAmount;
-    private JButton withdrawConformedBtn;
-    private JButton withdrawalBtn;
+    public JPanel Authentication;
+    public JLabel Heading;
+    public JPanel Signup;
+    public JButton addFingerprint;
+    public JButton backBtnAuth;
+    public JButton createAcccountBtn;
+    public JPanel fingerPrintCheckPanel;
+    public JLabel hiddenField;
+    public JPanel home;
+    public JLabel jLabel10;
+    public JLabel jLabel11;
+    public JLabel jLabel12;
+    public JLabel jLabel13;
+    public JLabel jLabel14;
+    public JLabel jLabel15;
+    public JLabel jLabel2;
+    public JLabel jLabel3;
+    public JLabel jLabel4;
+    public JLabel jLabel5;
+    public JLabel jLabel6;
+    public JLabel jLabel7;
+    public JLabel jLabel8;
+    public JLabel jLabel9;
+    public JScrollPane jScrollPane1;
+    public JSeparator jSeparator1;
+    public JTable lastTransactionTable;
+    public JPanel lastTransactions;
+    public JTextField loginName;
+    public JButton logoutBtn;
+    public JLayeredPane mainPanel;
+    public JPanel moneyTransferPanel;
+    public JButton navToHome;
+    public JButton navToHome1;
+    public JButton navToHome2;
+    public JLabel navToLogin;
+    public JLabel navToSignup;
+    public JLabel navToSignup1;
+    public JLabel navToSignup2;
+    public JButton nextBtn;
+    public JTextField transferAccountName;
+    public JTextField transferAmount;
+    public JButton transferBtn;
+    public JButton transferConformedBtn;
+    public JTextField userNameSignup;
+    public JButton viewBalanceBtn;
+    public JButton viewTransactionBtn;
+    public JLabel welcomeText;
+    public JPanel withDrawalPanel;
+    public JTextField withdrawAmount;
+    public JButton withdrawConformedBtn;
+    public JButton withdrawalBtn;
 
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 
     public ATMMain() throws ClassNotFoundException, SQLException {
@@ -114,7 +114,7 @@ public class ATMMain extends JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         Heading = new JLabel();
         mainPanel = new JLayeredPane();
@@ -785,7 +785,7 @@ public class ATMMain extends JFrame {
         pack();
     }
 
-    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+    public void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
 
 //      Check if the user exists
         String querry = "SELECT `id` FROM `users` WHERE `name` = ?";
@@ -819,17 +819,17 @@ public class ATMMain extends JFrame {
 
     }//GEN-LAST:event_nextBtnActionPerformed
 
-    private void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
+    public void userNameSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameSignupActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameSignupActionPerformed
 
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+    public void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
 
         this.hiddenField.setText("");
         navToPanel(this.Authentication);
     }//GEN-LAST:event_logoutBtnActionPerformed
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
         String login=this.loginName.getText();
@@ -863,7 +863,7 @@ public class ATMMain extends JFrame {
             e.printStackTrace();}
 
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void checkFingerprint() {
+    public void checkFingerprint() {
 
         try {
 
@@ -918,7 +918,7 @@ public class ATMMain extends JFrame {
 
 
 
-    private void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
+    public void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
         try {
 
 //            Write in the database
@@ -932,7 +932,7 @@ public class ATMMain extends JFrame {
         }
     }//GEN-LAST:event_createAcccountBtnActionPerformed
 
-    private void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
+    public void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
 
         // TODO add your handling code here:
         try{
@@ -975,7 +975,7 @@ public class ATMMain extends JFrame {
             e.printStackTrace();}
     }//GEN-LAST:event_addFingerprintActionPerformed
 
-    private void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
+    public void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
 
 //        Check if the user already exists
 //      If exist, show the error message
@@ -999,23 +999,23 @@ public class ATMMain extends JFrame {
         }
     }
 
-    private void navToHome() {
+    public void navToHome() {
         navToPanel(this.home);
     }
 
-    private void navToHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome2ActionPerformed
+    public void navToHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome2ActionPerformed
         // TODO add your handling code here:
 
         navToHome();
     }
 
-    private void navToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToLoginMouseClicked
+    public void navToLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToLoginMouseClicked
         // TODO add your handling code here:
 
         navToPanel(this.Authentication);
     }//GEN-LAST:event_navToLoginMouseClicked
 
-    private boolean navToPanel(JPanel jpanel) {
+    public boolean navToPanel(JPanel jpanel) {
 
         this.mainPanel.removeAll();
         this.mainPanel.add(jpanel);
@@ -1025,7 +1025,7 @@ public class ATMMain extends JFrame {
         return true;
     }
 
-    private void viewTransactionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTransactionBtnActionPerformed
+    public void viewTransactionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTransactionBtnActionPerformed
 
 //        Navigate to Last transaction panel
         navToPanel(this.lastTransactions);
@@ -1033,21 +1033,21 @@ public class ATMMain extends JFrame {
         updateLastTranscationTable();
     }//GEN-LAST:event_viewTransactionBtnActionPerformed
 
-    private void withdrawalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawalBtnActionPerformed
+    public void withdrawalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawalBtnActionPerformed
         // TODO add your handling code here:
 
 //        Navigate to Withdrawal panel
         navToPanel(this.withDrawalPanel);
     }//GEN-LAST:event_withdrawalBtnActionPerformed
 
-    private String currentDateTime() {
+    public String currentDateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
 
         return dateFormat.format(date);
     }
 
-    private void viewBalanceBtnActionPerformed(ActionEvent evt) {
+    public void viewBalanceBtnActionPerformed(ActionEvent evt) {
         try {
             String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
             PreparedStatement balancePstmt = (PreparedStatement)this.conn.prepareStatement(balanceQuerry);
@@ -1065,11 +1065,11 @@ public class ATMMain extends JFrame {
         }
 
     }
-    private void loginNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginNameActionPerformed
+    public void loginNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginNameActionPerformed
 
-    private void updateLastTranscationTable() {
+    public void updateLastTranscationTable() {
 
         DefaultTableModel model = (DefaultTableModel) this.lastTransactionTable.getModel();
         model.setRowCount(0);
@@ -1097,17 +1097,17 @@ public class ATMMain extends JFrame {
         }
     }
 
-    private void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
+    public void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_withdrawAmountActionPerformed
 
-    private void navToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHomeActionPerformed
+    public void navToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHomeActionPerformed
         // TODO add your handling code here:
 
         navToHome();
     }//GEN-LAST:event_navToHomeActionPerformed
 
-    private void withdrawConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawConformedBtnActionPerformed
+    public void withdrawConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawConformedBtnActionPerformed
         try {
 
 //            Get the balance from the database and check if the balance is sufficient to withdraw,
@@ -1159,40 +1159,40 @@ public class ATMMain extends JFrame {
         }
     }//GEN-LAST:event_withdrawConformedBtnActionPerformed
 
-    private void initDatabase() throws ClassNotFoundException, SQLException {
+    public void initDatabase() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost/atm", "root", "");
         System.out.println("Database is connected");
     }
 
-    private void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
+    public void navToSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignupMouseClicked
            // TODO add your handling code here:
                  navToPanel(this.Signup);
             }//GEN-LAST:event_navToSignupMouseClicked
 
-    private void navToSignup1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup1MouseClicked
+    public void navToSignup1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup1MouseClicked
         // TODO add your handling code here:
 
         navToHome();
     }//GEN-LAST:event_navToSignup1MouseClicked
 
-    private void transferAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAmountActionPerformed
+    public void transferAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_transferAmountActionPerformed
 
-    private void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
+    public void transferBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferBtnActionPerformed
         // TODO add your handling code here:
 //        Navigate to Money Transfer panel
         navToPanel(this.moneyTransferPanel);
 
     }//GEN-LAST:event_transferBtnActionPerformed
 
-    private void transferAccountNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAccountNameActionPerformed
+    public void transferAccountNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferAccountNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_transferAccountNameActionPerformed
 
-    private void transferConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferConformedBtnActionPerformed
+    public void transferConformedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transferConformedBtnActionPerformed
         try {
             // TODO add your handling code here:
 
@@ -1271,13 +1271,13 @@ public class ATMMain extends JFrame {
 
     }//GEN-LAST:event_transferConformedBtnActionPerformed
 
-    private void navToSignup2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup2MouseClicked
+    public void navToSignup2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_navToSignup2MouseClicked
         // TODO add your handling code here:
         navToHome();
 
     }//GEN-LAST:event_navToSignup2MouseClicked
 
-    private boolean checkUser(String name) {
+    public boolean checkUser(String name) {
 
         String querry = "SELECT `id` FROM `users` WHERE `name` = ?";
 
@@ -1305,7 +1305,7 @@ public class ATMMain extends JFrame {
 
     }
 
-    private void navToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome1ActionPerformed
+    public void navToHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_navToHome1ActionPerformed
         // TODO add your handling code here:
         navToHome();
     }//GEN-LAST:event_navToHome1ActionPerformed
