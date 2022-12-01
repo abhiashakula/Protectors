@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry excluding="tests/|src/" kind="src" path=""/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
@@ -8,22 +9,22 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/commons-io-2.8.0.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/fastutil-8.5.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/fingerprintio-1.1.0.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/gson-2.8.6.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/jackson-annotations-2.12.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/jackson-core-2.12.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/jackson-databind-2.12.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/jackson-dataformat-cbor-2.12.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/jnbis-2.0.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/mysql-connector-java-5.0.5-bin.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/noexception-1.6.2.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/slf4j.api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/slf4j-simple-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/Protectors-main/src/resources/sourceafis-3.13.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="src/resources/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="src/resources/commons-io-2.8.0.jar"/>
+	<classpathentry kind="lib" path="src/resources/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="src/resources/fastutil-8.5.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/fingerprintio-1.1.0.jar"/>
+	<classpathentry kind="lib" path="src/resources/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="src/resources/jackson-annotations-2.12.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/jackson-core-2.12.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/jackson-databind-2.12.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/jackson-dataformat-cbor-2.12.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/jnbis-2.0.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/MANTRA.MFS100.jar"/>
+	<classpathentry kind="lib" path="src/resources/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="src/resources/noexception-1.6.2.jar"/>
+	<classpathentry kind="lib" path="src/resources/slf4j.api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="src/resources/slf4j-simple-1.6.1.jar"/>
+	<classpathentry kind="lib" path="src/resources/sourceafis-3.13.0.jar"/>
 	<classpathentry kind="output" path="out/production/Protectors"/>
 </classpath>
