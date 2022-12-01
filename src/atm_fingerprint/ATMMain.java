@@ -382,6 +382,8 @@ public class ATMMain extends JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel4.setText("What would you like to do?");
 
+
+        //creating a button for balance withdrawal
         withdrawalBtn.setBackground(new java.awt.Color(255, 255, 255));
         withdrawalBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         withdrawalBtn.setText("Withdrawal");
@@ -390,7 +392,7 @@ public class ATMMain extends JFrame {
                 withdrawalBtnActionPerformed(evt);
             }
         });
-
+      // creating a button to view balance
         viewBalanceBtn.setBackground(new java.awt.Color(255, 255, 255));
         viewBalanceBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         viewBalanceBtn.setText("View Balance");
@@ -399,7 +401,7 @@ public class ATMMain extends JFrame {
                 viewBalanceBtnActionPerformed(evt);
             }
         });
-
+      //Creating a button to view transactions
         viewTransactionBtn.setBackground(new java.awt.Color(255, 255, 255));
         viewTransactionBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         viewTransactionBtn.setText("View Transactions");
@@ -409,6 +411,7 @@ public class ATMMain extends JFrame {
             }
         });
 
+      //Creating a button to transfer money
         transferBtn.setBackground(new java.awt.Color(255, 255, 255));
         transferBtn.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         transferBtn.setText("Money Transfer");
@@ -418,6 +421,7 @@ public class ATMMain extends JFrame {
             }
         });
 
+      //Creating logout button
         logoutBtn.setBackground(new java.awt.Color(255, 0, 0));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("Logout");
