@@ -1,28 +1,29 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.nio.file.Path;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 
 import atm_fingerprint.ATMMain;
 
 import static org.junit.jupiter.api.Assertions.*;
-@TestMethodOrder(OrderAnnotation.class)
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class tests {
 
     private static ATMMain ui;
 
     //setting the variables before the execution of test cases
-    @BeforeAll
+    @BeforeClass
     public static void setup() {
         try {
             ui = new ATMMain();
@@ -34,7 +35,7 @@ public class tests {
     }
 
     //clearing the DB after execution of all test cases as we are creating dummy user
-    @AfterAll
+    @AfterClass
     public static void clearDB() {
         if(ui != null) {
             String UserQuery = "DELETE FROM `users` WHERE `name` = 'NewTestUser' ";
