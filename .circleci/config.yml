@@ -18,7 +18,6 @@ jobs:
       - run: cd src  && javac -cp ".:resources/*" atm_fingerprint/ATMMain.java && javac -cp ".:resources/*" ../tests/tests.java && java -cp ".:../tests:resources/*" ../tests/TestRunner.java
 
 
-
 workflows:
   build_and_test:
     jobs:
