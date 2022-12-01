@@ -39,7 +39,7 @@ public class ATMMain extends JFrame {
      * Creates new form ATMmain
      */
     String appTitle = "Fingerprint Authentication";
-    //String key = "";
+
 
     public Connection conn;
 
@@ -374,6 +374,7 @@ public class ATMMain extends JFrame {
 
         mainPanel.add(Signup, "card2");
 
+      // Changes for adding buttons to home screen
         welcomeText.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         welcomeText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcomeText.setText("Welcome, ");
