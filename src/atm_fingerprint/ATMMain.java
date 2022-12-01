@@ -47,7 +47,8 @@ public class ATMMain extends JFrame {
 
     byte[] sourecefp = null;
 
-    String filePath = "";
+    //Changing this to public inorder to make this accessible while writing testcases.
+    public String filePath = "";
 
     Thread trd;
 

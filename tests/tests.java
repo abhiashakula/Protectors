@@ -37,10 +37,10 @@ public class tests {
     @AfterAll
     public static void clearDB() {
         if(ui != null) {
-            String uQuerry = "DELETE FROM `users` WHERE `name` = 'NewTestUser' ";
+            String UserQuery = "DELETE FROM `users` WHERE `name` = 'NewTestUser' ";
             PreparedStatement query;
             try {
-                query = (PreparedStatement) ui.conn.prepareStatement(uQuerry);
+                query = (PreparedStatement) ui.conn.prepareStatement(UserQuery);
                 query.execute();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -49,4 +49,13 @@ public class tests {
             ui.dispose();
         }
     }
+
+    //Test case to check if the UI is visible after running the code.
+    @Test
+    public void UiOpen() {
+        ui.setVisible(true);
+        assertTrue(ui.isVisible());
+    }
+
+
 }
