@@ -15,7 +15,7 @@ jobs:
       - image: "cimg/openjdk:19.0"
     steps:
       - checkout
-      - run: cd src/atm_fingerprint/  && java -cp ".:../resources/*" tests.java
+      - run: cd tests/  && java -cp ".:../resources/*" tests.java
 
 
 workflows:
