@@ -421,7 +421,7 @@ public class ATMMain extends JFrame {
             }
         });
 
-      //Creating Logout button
+      //Creating logout button
         logoutBtn.setBackground(new java.awt.Color(255, 0, 0));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("Logout");
