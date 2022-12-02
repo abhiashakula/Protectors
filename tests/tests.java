@@ -124,5 +124,26 @@ public class tests {
     	assertEquals(ui.hiddenField.getText(), "");
     } 
     
+    //testing if fingerprint match is working
+    @Test
+    public void test7_FingerprintIdentified() {
+    	ui.navToPanel(ui.Authentication);
+    	ui.loginName.setText("NewTestUser");
+    	File selectedFile = new File(Path.of("tests/test.png").toAbsolutePath().toString());
+        byte fingerprintByte[] = new byte[(int) selectedFile.length()];
+        try {
+       	FileInputStream fin = new FileInputStream(selectedFile);
+			fin.read(fingerprintByte);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+        ui.sourecefp = fingerprintByte;
+    	
+    	ui.checkFingerprint();
+    	assertEquals(ui.hiddenField.getText(), "NewTestUser");
+    	
+    	ui.logoutBtn.doClick();
+    }
     
 }
