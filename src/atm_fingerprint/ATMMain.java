@@ -662,13 +662,17 @@ public class ATMMain extends JFrame {
         navToHome1.setText("< Home");
         navToHome1.setBorder(null);
         navToHome1.addActionListener(new java.awt.event.ActionListener() {
+        // 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 navToHome1ActionPerformed(evt);
             }
         });
-
+        //creating and designing button for money transfer
+ 
         jLabel9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+   
         jLabel9.setText("Money Transfer");
+        //setting the background specifications for transferring button
 
         transferConformedBtn.setBackground(new java.awt.Color(0, 255, 0));
         transferConformedBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -1059,15 +1063,18 @@ public class ATMMain extends JFrame {
 
         return dateFormat.format(date);
     }
-
+    
+    // view balance functionality when the user wants to know the balance
     public void viewBalanceBtnActionPerformed(ActionEvent evt) {
         try {
+        	//from the users data selects the information of matched user and retrives their balance
             String balanceQuerry = "SELECT `balance` FROM `users` WHERE `name` = ? ";
             PreparedStatement balancePstmt = (PreparedStatement)this.conn.prepareStatement(balanceQuerry);
             balancePstmt.setString(1, this.hiddenField.getText());
             ResultSet rs = balancePstmt.executeQuery();
 
             int balance;
+            //checks the balance of user
             for(balance = 0; rs.next(); balance = rs.getInt("balance")) {
             }
 
