@@ -77,6 +77,52 @@ public class tests {
     	assertEquals("NewTestUser", ui.loginName.getText());
     }
     
+    //testing if we are able to store details in DB
+    @Test
+    public void test4_AccountAdded() {
+    	ui.userNameSignup.setText("NewTestUser");
+    	try {
+			ui.writeInDatabase(Path.of("tests/test.png").toAbsolutePath().toString());
+		} catch (FileNotFoundException e) {
+			System.err.println("Missing test.png file needed to test fingerprint sensor.");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.err.println("Connection error");
+			e.printStackTrace();
+		}
+    	
+    	assertTrue(ui.checkUser("NewTestUser"));
+    }
+    
+    
+    //testing for check of Dummy User
+    @Test
+    public void test5_UserNotFound() {
+    	assertFalse(ui.checkUser("DummyUser"));
+    }
+    
+    //testcase for checking of mismatch of Fingerprint
+    @Test
+    public void test6_FingerPrintNotMatched() {
+    	
+    	ui.navToPanel(ui.Authentication);
+    	ui.loginName.setText("NewTestUser");
+    	
+    	 File selectedFile = new File(Path.of("tests/test2.png").toAbsolutePath().toString());
+         byte fingerprintByte[] = new byte[(int) selectedFile.length()];
+         try {
+        	FileInputStream fin = new FileInputStream(selectedFile);
+			fin.read(fingerprintByte);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+         ui.sourecefp = fingerprintByte;
+    		
+    	ui.checkFingerprint();
+    	
+    	assertEquals(ui.hiddenField.getText(), "");
+    } 
     
     
 }
