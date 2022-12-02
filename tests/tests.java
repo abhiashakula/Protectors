@@ -171,7 +171,12 @@ public class tests {
     	assertTrue(ui.lastTransactions.isVisible());
     	ui.navToHome();
     }
-    
+    // teting whether user is able to logout
+    @Test
+    public void test__LogoutSuccess() {
+    	ui.logoutBtn.doClick();
+    	assertEquals("", ui.hiddenField.getText());
+    }
 //    These tests require a visual check
 //    
 //    
