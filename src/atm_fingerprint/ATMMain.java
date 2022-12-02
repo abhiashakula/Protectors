@@ -282,7 +282,7 @@ public class ATMMain extends JFrame {
         mainPanel.add(Authentication, "card2");
 
 
-
+// creating and designing signup button
         userNameSignup.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         userNameSignup.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userNameSignup.setToolTipText("Username");
@@ -291,7 +291,7 @@ public class ATMMain extends JFrame {
                 userNameSignupActionPerformed(evt);
             }
         });
-
+     // creating and designing Add fingerprint button
         addFingerprint.setBackground(new java.awt.Color(255, 255, 255));
         addFingerprint.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         addFingerprint.setText("Add Fingerprint");
