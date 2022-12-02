@@ -50,11 +50,33 @@ public class tests {
 
         	ui.dispose();
         }
-   }
+	}
 	
+	//testing whether UI is being launched.
     @Test
     public void test1_UiOpen() {
     	ui.setVisible(true);
 		assertTrue(ui.isVisible());		
 	}
+    
+    //testing if User name is being taken
+    @Test
+    public void test2_UserIDkept() {
+    	ui.loginName.setText("TestUser");
+    	assertEquals("TestUser", ui.loginName.getText());
+    }
+    
+    //testing if data can be entered on login screen
+    @Test
+    public void test3_correctData() {
+    	ui.navToPanel(ui.Authentication);
+    	ui.loginName.setText("NewTestUser");
+    	ui.filePath = Path.of("tests/test.png").toAbsolutePath().toString();
+    	
+    	assertEquals(Path.of("tests/test.png").toAbsolutePath().toString(), ui.filePath);
+    	assertEquals("NewTestUser", ui.loginName.getText());
+    }
+    
+    
+    
 }
