@@ -16,7 +16,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 //import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runners.MethodSorters;
-import org.junit.jupiter.api.Order;
+//import org.junit.jupiter.api.Order;
 
 import atm_fingerprint.ATMMain;
 
