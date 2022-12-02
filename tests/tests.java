@@ -164,6 +164,13 @@ public class tests {
     	
     	assertEquals(ui.hiddenField.getText(), "NewTestUser");
     }
+   // test case to check recent transactions 
+    @Test 
+    public void test9_RecentTransActions() {
+    	ui.viewTransactionBtn.doClick();
+    	assertTrue(ui.lastTransactions.isVisible());
+    	ui.navToHome();
+    }
     
 //    These tests require a visual check
 //    
