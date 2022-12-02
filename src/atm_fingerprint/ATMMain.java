@@ -45,7 +45,7 @@ public class ATMMain extends JFrame {
 
     boolean fingerprintAuthenticated = false;
 
-    byte[] sourecefp = null;
+    public byte[] sourecefp = null;
 
     //Changing this to public inorder to make this accessible while writing testcases.
     public String filePath = "";
