@@ -184,7 +184,9 @@ public class ATMMain extends JFrame {
         Heading.setText("Fingerprint Authentication - ATM");
 
         mainPanel.setLayout(new java.awt.CardLayout());
-
+        
+        
+        //setting the login Username field
         loginName.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         loginName.setHorizontalAlignment(JTextField.CENTER);
         loginName.setToolTipText("Username");
@@ -194,9 +196,11 @@ public class ATMMain extends JFrame {
             }
         });
 
+        //setting label for username in login page
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel2.setText("Login");
 
+        //Next button setting up for the fingerprint validation
         nextBtn.setBackground(new java.awt.Color(0, 204, 0));
         nextBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         nextBtn.setText("Next >");
@@ -213,6 +217,7 @@ public class ATMMain extends JFrame {
         jLabel3.setText("Enter your username");
         jLabel3.setToolTipText("");
 
+        //creating signup button for registering new User
         navToSignup.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         navToSignup.setForeground(new java.awt.Color(77, 77, 223));
         navToSignup.setHorizontalAlignment(SwingConstants.CENTER);
@@ -226,6 +231,7 @@ public class ATMMain extends JFrame {
             }
         });
 
+        //Adding File Selection Button to add fingerprint
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Add Finger Print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +240,7 @@ public class ATMMain extends JFrame {
             }
         });
 
+        //setting the layout of all the above added components
         javax.swing.GroupLayout AuthenticationLayout = new javax.swing.GroupLayout(Authentication);
         Authentication.setLayout(AuthenticationLayout);
         AuthenticationLayout.setHorizontalGroup(
@@ -490,6 +497,7 @@ public class ATMMain extends JFrame {
         jLabel12.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel12.setText("Your Transactions");
 
+        //Setting the transaction table to view the transactions
         lastTransactionTable.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lastTransactionTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
@@ -840,12 +848,15 @@ public class ATMMain extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameSignupActionPerformed
 
+    
     public void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
 
         this.hiddenField.setText("");
         navToPanel(this.Authentication);
     }//GEN-LAST:event_logoutBtnActionPerformed
+    
+    
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
@@ -857,17 +868,14 @@ public class ATMMain extends JFrame {
         }
         try{
 
-
 //            Capture the fingerprint
             // captureFingerprint();
             JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
             int returnValue = jfc.showOpenDialog(null);
-            // int returnValue = jfc.showSaveDialog(null);
 
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = jfc.getSelectedFile();
-                //filePath=selectedFile.getAbsolutePath();
 
                 FileInputStream fin = new FileInputStream(selectedFile);
 
@@ -880,6 +888,8 @@ public class ATMMain extends JFrame {
             e.printStackTrace();}
 
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    //method for checking fingerprint match with DB
     public void checkFingerprint() {
 
         try {
@@ -898,16 +908,19 @@ public class ATMMain extends JFrame {
 
             }
 
+            //taking the user image from DB
             FingerprintTemplate probe = new FingerprintTemplate(new FingerprintImage(sourecefp,
                     new FingerprintImageOptions()
                             .dpi(500)));
 
+            //taking the finger print uploaded by user
             FingerprintTemplate candidate = new FingerprintTemplate(
                     new FingerprintImage(
                             destfp,
                             new FingerprintImageOptions()
                                     .dpi(500)));
 
+            //checking the match score of above two fingerprints
             double score = new FingerprintMatcher(probe).match(candidate);
 
 
@@ -934,6 +947,7 @@ public class ATMMain extends JFrame {
     }
 
 
+    
 
     public void createAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcccountBtnActionPerformed
         try {
@@ -948,7 +962,9 @@ public class ATMMain extends JFrame {
             JOptionPane.showMessageDialog(rootPane, "Some error has been occured, please try again later", appTitle, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_createAcccountBtnActionPerformed
-
+    
+    
+//method for selecting fingerprint image from file  browser
     public void addFingerprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFingerprintActionPerformed
 
         // TODO add your handling code here:
@@ -966,32 +982,13 @@ public class ATMMain extends JFrame {
                 File selectedFile = jfc.getSelectedFile();
                 filePath=selectedFile.getAbsolutePath();
             }
-                         /* FileInputStream fin = new FileInputStream(selectedFile);
-
-                byte fingerprintByte[] = new byte[(int) selectedFile.length()];
-                fin.read(fingerprintByte);
-
-                 FingerData fingerData = new FingerData();
-                int rett = mfs100.AutoCapture(fingerData, timeout, false, false);
-
-
-                    //  Capture the fingerprint and store it in a temp file
-
-                    ISOTemplate = new byte[fingerData.ISOTemplate().length];
-                    System.arraycopy(fingerData.ISOTemplate(), 0, ISOTemplate, 0, fingerData.ISOTemplate().length);
-                    ANSITemplate = new byte[fingerData.ANSITemplate().length];
-                    System.arraycopy(fingerData.ANSITemplate(), 0, ANSITemplate, 0, fingerData.ANSITemplate().length);
-                    filePath = WriteBytesToFile("AnsiTemplate.ansi", fingerprintByte);
-                    //JOptionPane.showMessageDialog(rootPane, "Fingerprint added successfully", appTitle, JOptionPane.OK_OPTION);
-		}
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Oops..! Fingerprint not initialized\n" + "Error: " + mfs100.GetLastError() + " (" + String.valueOf(ret) + ")", appTitle, JOptionPane.ERROR_MESSAGE);
-        }*/
+                        
         }catch(Exception e){
             e.printStackTrace();}
     }//GEN-LAST:event_addFingerprintActionPerformed
-
+    
+    
+//method for storing the user details in DB
     public void writeInDatabase(String filePath) throws SQLException, FileNotFoundException {
 
 //        Check if the user already exists
@@ -1042,6 +1039,7 @@ public class ATMMain extends JFrame {
         return true;
     }
 
+    //method for action to be pperformed when clicking on view transactions button
     public void viewTransactionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTransactionBtnActionPerformed
 
 //        Navigate to Last transaction panel
@@ -1089,6 +1087,7 @@ public class ATMMain extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginNameActionPerformed
 
+    //method for updating transaction table when any action performed
     public void updateLastTranscationTable() {
 
         DefaultTableModel model = (DefaultTableModel) this.lastTransactionTable.getModel();
