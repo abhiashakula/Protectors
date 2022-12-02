@@ -551,7 +551,7 @@ public class ATMMain extends JFrame {
 
         mainPanel.add(lastTransactions, "card2");
 
-
+// withdrawal method used in it which navigate to home.
         withdrawAmount.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         withdrawAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         withdrawAmount.setToolTipText("Username");
@@ -574,7 +574,7 @@ public class ATMMain extends JFrame {
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel7.setText("Withdrawal");
-
+// withdrawal confirmed
         withdrawConformedBtn.setBackground(new java.awt.Color(0, 255, 0));
         withdrawConformedBtn.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         withdrawConformedBtn.setText("Withdraw");
