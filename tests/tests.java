@@ -164,7 +164,19 @@ public class tests {
     	
     	assertEquals(ui.hiddenField.getText(), "NewTestUser");
     }
-    
+   // test case to check recent transactions 
+    @Test 
+    public void test9_RecentTransActions() {
+    	ui.viewTransactionBtn.doClick();
+    	assertTrue(ui.lastTransactions.isVisible());
+    	ui.navToHome();
+    }
+    // teting whether user is able to logout
+    @Test
+    public void test__LogoutSuccess() {
+    	ui.logoutBtn.doClick();
+    	assertEquals("", ui.hiddenField.getText());
+    }
 //    These tests require a visual check
 //    
 //    
